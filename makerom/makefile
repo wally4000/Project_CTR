@@ -186,3 +186,10 @@ deps:
 .PHONY: clean_deps
 clean_deps:
 	@$(foreach lib,$(PROJECT_DEPEND_LOCAL_DIR), cd "$(ROOT_PROJECT_DEPENDENCY_PATH)/$(lib)" && $(MAKE) clean && cd "$(PROJECT_PATH)";)
+
+
+# Install Target
+.PHONY: install
+install: program
+	@echo Installing $(PROJECT_NAME) to /usr/local/bin
+	@cp "$(PROJECT_BIN_PATH)/$(PROJECT_NAME)" "/usr/local/bin"
